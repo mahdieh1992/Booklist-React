@@ -1,0 +1,30 @@
+:root {
+    --orange: rgb(243, 105, 51);
+    --grey:rgb(104, 101, 100);
+}
+
+
+html {
+    box-sizing: border-box;
+    font-size: 10px;
+}
+
+*,
+*.after,
+*.before {
+    box-sizing: inherit;
+}
+
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    font-family: 'Roboto';
+}
+
+.container {
+    width: 100%;
+    padding-left: 15rem;
+    padding-right: 15rem;
+
+}

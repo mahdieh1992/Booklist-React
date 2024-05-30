@@ -1,0 +1,19 @@
+.Header{
+    margin-top: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Header-content__logo{
+    width: 40rem;
+    height: 25rem;
+    margin-right: 4rem;
+}
+.Header-content__title{
+    color: var(--orange);
+    font-size: 20rem;
+}
+.Header-content__title--span{
+    color:black
+}

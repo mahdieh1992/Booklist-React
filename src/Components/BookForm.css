@@ -1,0 +1,36 @@
+.Book {}
+
+.BookForm {
+    padding: 2rem 2rem;
+}
+.BookForm__lbl{
+    color: var(--grey);
+    font-size: 3rem;
+
+}
+.BookForm__in {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    margin: 2rem 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.BookForm__Add {
+    font-family:'Archivo' ;
+    font-size: 3rem;
+    width: 100%;
+    background-color: var(--orange);
+    color: white;
+    padding:2rem 2rem;
+    margin:2rem 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.BookForm__Add:hover{
+
+    background-color:rgb(223, 92, 40);
+}
+
