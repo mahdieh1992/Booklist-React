@@ -13,19 +13,22 @@ export default class BookForm extends React.Component {
             addBook: false,
             booksList: []
         }
-
+         // Binding the method to the current instance of the class
+        // This ensures that `this` inside method refers to the component instance
         this.titleHandle = this.titleHandle.bind(this)
         this.authorHandle = this.authorHandle.bind(this)
         this.yearHandle = this.yearHandle.bind(this)
         this.addBookHandle = this.addBookHandle.bind(this)
     }
 
+    // Method to handle changes to the title input
     titleHandle(event) {
         this.setState({
             title: event.target.value
         })
     }
 
+    // Method to handle changes to the author input
     authorHandle(event) {
         this.setState(
             {
@@ -34,25 +37,29 @@ export default class BookForm extends React.Component {
         )
     }
 
+    // Method to handle changes to the year input
     yearHandle(event) {
         this.setState({
             year: event.target.value
         })
 
     }
+    //This component allows users to input book details (title, author, and year), and upon form submission,
+    // it validates the input and updates the state to include the new book in the 
 
     addBookHandle(event) {
         event.preventDefault()
         this.setState({
-            addBook: true
+            addBook: true //Updates the state with the values from the button fields
         })
         if (this.state.title.length !== 0 && this.state.author.length !== 0 && this.state.year.length !== 0) {
+            //store the current input values.
             let title = this.state.title
             let author = this.state.author
             let year = this.state.year
             let currentList=[{id:this.state.booksList.length+1, title: title, author: author, year: year}]
             this.setState((prevState)=>{
-                return {booksList:[...prevState.booksList,...currentList]}
+                return {booksList:[...prevState.booksList,...currentList]} //The list of books is displayed dynamically as new books are added
             })
 
         }
@@ -64,7 +71,8 @@ export default class BookForm extends React.Component {
                 <form className="BookForm">
                     <label className='BookForm__lbl'>Tile</label>
                     <input type="text" className='BookForm__in' value={this.state.title} onChange={(event) => { this.titleHandle(event) }}></input>
-                    {this.state.addBook && this.state.title.length === 0 && (<span className="spanValid">Please Enter Title</span>)}
+                     {/*it validates the input and updates the state to include the new book in the*/} 
+                     {this.state.addBook && this.state.title.length === 0 && (<span className="spanValid">Please Enter Title</span>)}
 
                     <label className='BookForm__lbl'>Author</label>
                     <input type="text" className='BookForm__in' value={this.state.author} onChange={(event) => { this.authorHandle(event) }}></input>
