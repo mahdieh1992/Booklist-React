@@ -54,11 +54,19 @@ export default class BookForm extends React.Component {
         this.setState({
             addBook: true //Updates the state with the values from the button fields
         })
-        if (title.length !== 0 && author.length !== 0 && year.length !== 0) {
+        if (title && author && year) {
 
             let currentList = [{ id: this.state.booksList.length + 1, title, author, year }]
             this.setState((prevState) => {
-                return { booksList: [...prevState.booksList, ...currentList] } //The list of books is displayed dynamically as new books are added
+                return {
+                    booksList: [...prevState.booksList, ...currentList],
+                    title: '',
+                    author: '',
+                    year: ''
+
+
+                } //The list of books is displayed dynamically as new books are added
+
             })
 
         }
