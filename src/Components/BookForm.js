@@ -59,10 +59,7 @@ export default class BookForm extends React.Component {
             let currentList = [{ id: this.state.booksList.length + 1, title, author, year }]
             this.setState((prevState) => {
                 return {
-                    booksList: [...prevState.booksList, ...currentList],
-                    title: '',
-                    author: '',
-                    year: ''
+                    booksList: [...prevState.booksList, ...currentList]
 
 
                 } //The list of books is displayed dynamically as new books are added
@@ -70,6 +67,12 @@ export default class BookForm extends React.Component {
             })
 
         }
+        this.setState({
+            title: '',
+            author: '',
+            year: ''
+
+        })
     }
 
     render() {
