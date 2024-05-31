@@ -34,3 +34,38 @@
     background-color:rgb(223, 92, 40);
 }
 
+.spanValid{
+    color:#b84545;
+    display: block;
+    font-size:3rem;
+    margin-bottom: 2.5rem;
+   
+}
+
+
+.BookAdded__Tbl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+
+}
+
+th {
+    border-bottom: 1px solid var(--grey);
+}
+
+th,
+td {
+
+    font-size: 3rem;
+    color: var(--grey);
+    padding: 3rem 24.2rem
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
