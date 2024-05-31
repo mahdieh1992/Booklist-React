@@ -13,7 +13,7 @@ export default class BookForm extends React.Component {
             addBook: false,
             booksList: []
         }
-         // Binding the method to the current instance of the class
+        // Binding the method to the current instance of the class
         // This ensures that `this` inside method refers to the component instance
         this.titleHandle = this.titleHandle.bind(this)
         this.authorHandle = this.authorHandle.bind(this)
@@ -49,17 +49,16 @@ export default class BookForm extends React.Component {
 
     addBookHandle(event) {
         event.preventDefault()
+
+        let { title, author, year } = this.state //destructuring for read data store the current input values.
         this.setState({
             addBook: true //Updates the state with the values from the button fields
         })
-        if (this.state.title.length !== 0 && this.state.author.length !== 0 && this.state.year.length !== 0) {
-            //store the current input values.
-            let title = this.state.title
-            let author = this.state.author
-            let year = this.state.year
-            let currentList=[{id:this.state.booksList.length+1, title: title, author: author, year: year}]
-            this.setState((prevState)=>{
-                return {booksList:[...prevState.booksList,...currentList]} //The list of books is displayed dynamically as new books are added
+        if (title.length !== 0 && author.length !== 0 && year.length !== 0) {
+
+            let currentList = [{ id: this.state.booksList.length + 1, title, author, year }]
+            this.setState((prevState) => {
+                return { booksList: [...prevState.booksList, ...currentList] } //The list of books is displayed dynamically as new books are added
             })
 
         }
@@ -71,8 +70,8 @@ export default class BookForm extends React.Component {
                 <form className="BookForm">
                     <label className='BookForm__lbl'>Tile</label>
                     <input type="text" className='BookForm__in' value={this.state.title} onChange={(event) => { this.titleHandle(event) }}></input>
-                     {/*it validates the input and updates the state to include the new book in the*/} 
-                     {this.state.addBook && this.state.title.length === 0 && (<span className="spanValid">Please Enter Title</span>)}
+                    {/*it validates the input and updates the state to include the new book in the*/}
+                    {this.state.addBook && this.state.title.length === 0 && (<span className="spanValid">Please Enter Title</span>)}
 
                     <label className='BookForm__lbl'>Author</label>
                     <input type="text" className='BookForm__in' value={this.state.author} onChange={(event) => { this.authorHandle(event) }}></input>
@@ -95,16 +94,16 @@ export default class BookForm extends React.Component {
                             <th>Author</th>
                             <th>Year</th>
                         </tr>
-                       
-                            {this.state.booksList.map((book)=>(
-                                    <tr>
-                                        <td>{book.title}</td>
-                                        <td>{book.author}</td>
-                                        <td>{book.year}</td>
-                                    </tr>
-                            ))}
-                        
-                    
+
+                        {this.state.booksList.map((book) => (
+                            <tr>
+                                <td>{book.title}</td>
+                                <td>{book.author}</td>
+                                <td>{book.year}</td>
+                            </tr>
+                        ))}
+
+
                     </table>
                 </div>
             </div>
